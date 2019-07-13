@@ -13,11 +13,12 @@ function App() {
       { name: 'State of a component', exercises: 14 },
     ],
   }
+  const totalExercises = course.parts.reduce((a, b) => a + b['exercises'], 0)
   return (
     <div>
       <Header title={course.name} />
       <Content parts={course.parts} />
-      <Total total={course.parts.reduce((a, b) => a + b['exercises'], 0)} />
+      <Total total={totalExercises} />
     </div>
   )
 }

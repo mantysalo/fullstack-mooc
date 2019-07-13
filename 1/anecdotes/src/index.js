@@ -7,29 +7,27 @@ const App = props => {
 
   const highestVoteIndex = points.indexOf(Math.max(...points))
 
+  const handleVote = () => {
+    const copy = [...points]
+    copy[selected] += 1
+    setPoints(copy)
+  }
+
   return (
     <div>
       <h1>Anecdote of the day</h1>
       {props.anecdotes[selected]}
       <br />
       <p>has {points[selected]} votes</p>
-      <button
-        onClick={() => {
-          const copy = [...points]
-          copy[selected] += 1
-          setPoints(copy)
-        }}
-      >
-        vote
-      </button>
+      <button onClick={() => handleVote()}>vote</button>
       <button onClick={() => setSelected(Math.floor(Math.random() * 6))}>
         random anecdote
       </button>
       <div>
         <h1>Anecdote with most votes</h1>
         {props.anecdotes[highestVoteIndex]}
-      <br />
-      <p>has {points[highestVoteIndex]} votes</p>
+        <br />
+        <p>has {points[highestVoteIndex]} votes</p>
       </div>
     </div>
   )

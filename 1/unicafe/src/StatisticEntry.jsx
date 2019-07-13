@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const StatisticEntry = ({text, value}) => {
+export const StatisticEntry = ({ description, value }) => {
   return (
     <tr>
-      <td>{text}</td>
+      <td>{description}</td>
       <td>{value}</td>
     </tr>
   )
